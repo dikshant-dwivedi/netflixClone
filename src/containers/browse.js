@@ -1,8 +1,9 @@
 import { useContext, useState, useEffect } from "react"
+import Fuse from "fuse.js"
 import { SelectProfileContainer } from "./profiles"
 import { FirebaseContext } from "../context/firebase"
 import { FooterContainer } from "./footer"
-import { Loading, Header, Card } from "../components"
+import { Loading, Header, Card, Player } from "../components"
 import * as ROUTES from "../constants/routes"
 import logo from "../logo.svg"
 
@@ -24,6 +25,19 @@ export function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category])
   }, [slides, category])
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      keys: ["data.description", "data.title", "data.genre"],
+    })
+    const results = fuse.search(searchTerm).map(({ item }) => item)
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results)
+    } else {
+      setSlideRows(slides[category])
+    }
+    // eslint-disable-next-line
+  }, [searchTerm])
 
   return profile.displayName ? (
     <>
@@ -55,12 +69,12 @@ export function BrowseContainer({ slides }) {
               <Header.Dropdown>
                 <Header.Group>
                   <Header.Picture src={user.photoURL} />
-                  <Header.TextLink onClick={() => firebase.auth().signOut()}>
-                    {user.displayName}
-                  </Header.TextLink>
+                  <Header.TextLink>{user.displayName}</Header.TextLink>
                 </Header.Group>
                 <Header.Group>
-                  <Header.TextLink>Sign out</Header.TextLink>
+                  <Header.TextLink onClick={() => firebase.auth().signOut()}>
+                    Sign out
+                  </Header.TextLink>
                 </Header.Group>
               </Header.Dropdown>
             </Header.Profile>
@@ -97,7 +111,10 @@ export function BrowseContainer({ slides }) {
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
-              <p>Hello</p>
+              <Player>
+                <Player.Button />
+                <Player.Video src='/videos/bunny.mp4' />
+              </Player>
             </Card.Feature>
           </Card>
         ))}
