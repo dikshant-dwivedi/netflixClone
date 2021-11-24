@@ -31,7 +31,7 @@ video on overlay.
 
 ## Add Env Variables
 ```
-REACT_APP_FIREBASE_CREDS = {{"apiKey": "","authDomain": "","projectId": "","storageBucket": "","messagingSenderId": "","appId": ""}}
+REACT_APP_FIREBASE_CREDS = {"apiKey": "","authDomain": "","projectId": "","storageBucket": "","messagingSenderId": "","appId": ""}
 ```
 
 ## Install Dependencies
@@ -47,13 +47,13 @@ npm install
 
 ## To seed data to firestore
 1. Go to src -> lib -> firebase.prod.js
-2. Uncomment the following lines
+2. Uncomment the following lines:
 
     ```
     import { seedDatabase } from "../seed"
     seedDatabase(firebase)
     ```
-3. Save the file <strong>once.</strong> The data is seeded to firestore successfully
+3. Save the file <strong>once.</strong> The data is seeded to firestore successfully.
 4. Comment the lines again to avoid duplication of data.
 
 # Acknowledgment
