@@ -24,7 +24,8 @@ video on overlay.
 
 # Softwares used
   * ReactJs - Custom Hooks, Context, Compound Components, Styled-components, React-router 
-  * Firebase - auth and firestore, fuse.js
+  * Firebase - auth and firestore
+  * Fuse.js
 
 # Usage
 
