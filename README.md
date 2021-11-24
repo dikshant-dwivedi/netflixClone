@@ -12,8 +12,8 @@ video on overlay.
 # Preview
 
 <p float = "left" align = "center">
-<img src="/readMeAssets/homePage.png" alt = "HomeScreen" height="1200"/>
-  <img src="/readMeAssets/browsePage.png" alt = "HomeScreen" height="1200"/>
+<img src="/readMeAssets/homePage.png" alt = "HomeScreen" height="850"/>
+  <img src="/readMeAssets/browsePage.png" alt = "HomeScreen" height="850"/>
 </p>
 
 <p float = "left" align = "center">
