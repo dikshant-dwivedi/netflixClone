@@ -23,7 +23,8 @@ video on overlay.
 </p>
 
 # Softwares used
-ReactJs - Custom Hooks, Context, Compound Components, styled-components, React-router Firebase - auth and firestore, fuse.js
+  * ReactJs - Custom Hooks, Context, Compound Components, Styled-components, React-router 
+  * Firebase - auth and firestore, fuse.js
 
 # Usage
 
@@ -40,7 +41,7 @@ npm install
 ## Run on your local machine
 ```
 # Run frontend (:3000)
-npm start
+  npm start
 ```
 
 ## To seed data to firestore
